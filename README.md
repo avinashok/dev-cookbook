@@ -10,6 +10,9 @@ docker pull eyctpeu-smartreviewer-nonprod-docker.jfrog.io/module_base:3.8
 docker images
 docker build . -f package_module.dockerfile -t crossdocumentcomparison_v1
 docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 crossdocumentcomparison_v1
+
+docker login
+docker-compose -f db-docker-compose.yaml up
  
 
  
@@ -149,4 +152,9 @@ List your VMs: az vm list
 Check if logged in or not: az account show -o jsonc
  
 
+ 
+ conda create -y -n "pipeline-env" python=3.9 pip=21.1
+ conda env list
+ conda activate pipeline-env
+ conda deactivate
  
