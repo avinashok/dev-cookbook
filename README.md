@@ -5,7 +5,7 @@ Docker Commands
 
  
 
-docker login eyctpeu-smartreviewer-nonprod-docker.jfrog.io -u  A2185150-MSP01@ey.net -p AKCp8nG67QbtcRcQmHsUoRTTUYzC1dtxqsqN1AZBQdYh2qRnEigaKXJZYsJUe5DjusPqt9Lxs
+docker login 
 docker pull eyctpeu-smartreviewer-nonprod-docker.jfrog.io/module_base:3.8
 docker images
 docker build . -f package_module.dockerfile -t crossdocumentcomparison_v1
