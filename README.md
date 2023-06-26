@@ -63,7 +63,7 @@ git pull origin bug/2457988-cross_document_error
 
 PEP8 Enforcing:
 
-flake8 <code path> --max-line-length=120
+`flake8 <code path> --max-line-length=120`
 
 or
 
