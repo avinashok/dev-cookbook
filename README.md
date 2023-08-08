@@ -1,18 +1,88 @@
-# DevCheatSheet
+# Developer Cheat Sheet
+
 Some commands &amp; shortcuts I use in daily life. Also contains some interesting prompts as well for Generative AI tools.
 
-Docker Commands
+## Contents
 
- 
+- [Docker Commands](#Docker Commands)
+- [Conda virtual environments](#Conda virtual environments)
+- [Package Management](#package-management)
+- [Version Control (Git)](#version-control-git)
+- [Network and Connectivity](#network-and-connectivity)
+- [Miscellaneous](#miscellaneous)
 
-docker login 
-docker pull eyctpeu-smartreviewer-nonprod-docker.jfrog.io/module_base:3.8
-docker images
-docker build . -f package_module.dockerfile -t crossdocumentcomparison_v1
-docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 crossdocumentcomparison_v1
+## Docker Commands
 
-docker login
-docker-compose -f db-docker-compose.yaml up
+### Docker Commands for running a docker file
+
+- `docker login` - Enable logging in with SSO if connected to VPN/Remote Connect.
+- `docker pull eyctpeu-smartreviewer-nonprod-docker.jfrog.io/module_base:3.8` - A working sample command to pull a repository.
+- `docker images` - List the available docker images.
+- `docker build . -f package_module.dockerfile -t crossdocumentcomparison_v1` - Build a docker image using the available dockerfile in the repository
+- `docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 crossdocumentcomparison_v1` - Run & publish the docker image
+- `docker-compose -f db-docker-compose.yaml up` - 
+
+
+
+## File Operations
+
+### Creating and Manipulating Files
+
+- `touch [filename]` - Create an empty file.
+- `cp [source] [destination]` - Copy files or directories.
+- `mv [source] [destination]` - Move or rename files or directories.
+- ...
+
+## Package Management
+
+### Package Installation and Management
+
+- `npm install [package]` - Install a Node.js package.
+- `pip install [package]` - Install a Python package.
+- `brew install [package]` - Install a package using Homebrew.
+- ...
+
+## Version Control (Git)
+
+### Basic Git Commands
+
+- `git clone [repository]` - Clone a remote repository.
+- `git init` - Initialize a new Git repository.
+- `git add [file]` - Stage changes for commit.
+- `git commit -m "message"` - Commit staged changes.
+- ...
+
+## Network and Connectivity
+
+### Network Related Commands
+
+- `ping [hostname]` - Send ICMP echo requests to a host.
+- `curl [url]` - Fetch content from a URL using HTTP/HTTPS.
+- `ssh [user]@[hostname]` - Connect to a remote host using SSH.
+- ...
+
+## Miscellaneous
+
+### Other Useful Commands
+
+- `echo [text]` - Display a message on the terminal.
+- `grep [pattern] [file]` - Search for a pattern in a file.
+- `chmod [permissions] [file]` - Change file permissions.
+- ...
+
+---
+
+Feel free to contribute by adding your own frequently used commands or improving the documentation. If you have questions or suggestions, please open an issue or submit a pull request.
+
+**Disclaimer:** Please use these commands with caution, as some actions can have irreversible effects on your system or data.
+
+
+# Appendix
+
+
+
+
+
  
 
  
@@ -158,79 +228,5 @@ Check if logged in or not: az account show -o jsonc
  conda activate pipeline-env
  conda deactivate
 
-
- # Terminal Commands Documentation
-
-This repository contains a list of terminal commands that I frequently use for various tasks. These commands are documented here for future reference and to share knowledge.
-
-## Table of Contents
-
-- [Navigation](#navigation)
-- [File Operations](#file-operations)
-- [Package Management](#package-management)
-- [Version Control (Git)](#version-control-git)
-- [Network and Connectivity](#network-and-connectivity)
-- [Miscellaneous](#miscellaneous)
-
-## Navigation
-
-### Navigating the File System
-
-- `cd [directory]` - Change the current working directory.
-- `ls` - List files and directories in the current directory.
-- `ls -l` - List files with detailed information.
-- ...
-
-## File Operations
-
-### Creating and Manipulating Files
-
-- `touch [filename]` - Create an empty file.
-- `cp [source] [destination]` - Copy files or directories.
-- `mv [source] [destination]` - Move or rename files or directories.
-- ...
-
-## Package Management
-
-### Package Installation and Management
-
-- `npm install [package]` - Install a Node.js package.
-- `pip install [package]` - Install a Python package.
-- `brew install [package]` - Install a package using Homebrew.
-- ...
-
-## Version Control (Git)
-
-### Basic Git Commands
-
-- `git clone [repository]` - Clone a remote repository.
-- `git init` - Initialize a new Git repository.
-- `git add [file]` - Stage changes for commit.
-- `git commit -m "message"` - Commit staged changes.
-- ...
-
-## Network and Connectivity
-
-### Network Related Commands
-
-- `ping [hostname]` - Send ICMP echo requests to a host.
-- `curl [url]` - Fetch content from a URL using HTTP/HTTPS.
-- `ssh [user]@[hostname]` - Connect to a remote host using SSH.
-- ...
-
-## Miscellaneous
-
-### Other Useful Commands
-
-- `echo [text]` - Display a message on the terminal.
-- `grep [pattern] [file]` - Search for a pattern in a file.
-- `chmod [permissions] [file]` - Change file permissions.
-- ...
-
----
-
-Feel free to contribute by adding your own frequently used commands or improving the documentation. If you have questions or suggestions, please open an issue or submit a pull request.
-
-**Disclaimer:** Please use these commands with caution, as some actions can have irreversible effects on your system or data.
 
  
