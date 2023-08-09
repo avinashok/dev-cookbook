@@ -4,229 +4,190 @@ Some commands &amp; shortcuts I use in daily life. Also contains some interestin
 
 ## Contents
 
-- [Docker Commands](#Docker Commands)
-- [Conda virtual environments](#Conda virtual environments)
-- [Package Management](#package-management)
-- [Version Control (Git)](#version-control-git)
-- [Network and Connectivity](#network-and-connectivity)
-- [Miscellaneous](#miscellaneous)
-
-## Docker Commands
-
-### Docker Commands for running a docker file
-
-- `docker login` - Enable logging in with SSO if connected to VPN/Remote Connect.
-- `docker pull eyctpeu-smartreviewer-nonprod-docker.jfrog.io/module_base:3.8` - A working sample command to pull a repository.
-- `docker images` - List the available docker images.
-- `docker build . -f package_module.dockerfile -t crossdocumentcomparison_v1` - Build a docker image using the available dockerfile in the repository
-- `docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 crossdocumentcomparison_v1` - Run & publish the docker image
-- `docker-compose -f db-docker-compose.yaml up` - 
+- [Git Commands](#git-commands)
+- [Conda virtual environments](#conda-virtual-environments)
+- [PEP8 Checking in code](#pep8-checking-in-code)
+- [Docker Commands](#docker-commands)
+- [Azure Commands](#azure-commands)
+- [Kubernetes Commands](#kubernetes-commands)
+- [Linux Commands](#linux-commands)
+- [Prefect Commands](#prefect-commands)
+- [Other Tips](#other-tips)
 
 
-
-## File Operations
-
-### Creating and Manipulating Files
-
-- `touch [filename]` - Create an empty file.
-- `cp [source] [destination]` - Copy files or directories.
-- `mv [source] [destination]` - Move or rename files or directories.
-- ...
-
-## Package Management
-
-### Package Installation and Management
-
-- `npm install [package]` - Install a Node.js package.
-- `pip install [package]` - Install a Python package.
-- `brew install [package]` - Install a package using Homebrew.
-- ...
-
-## Version Control (Git)
-
-### Basic Git Commands
-
-- `git clone [repository]` - Clone a remote repository.
-- `git init` - Initialize a new Git repository.
-- `git add [file]` - Stage changes for commit.
-- `git commit -m "message"` - Commit staged changes.
-- ...
-
-## Network and Connectivity
-
-### Network Related Commands
-
-- `ping [hostname]` - Send ICMP echo requests to a host.
-- `curl [url]` - Fetch content from a URL using HTTP/HTTPS.
-- `ssh [user]@[hostname]` - Connect to a remote host using SSH.
-- ...
-
-## Miscellaneous
-
-### Other Useful Commands
-
-- `echo [text]` - Display a message on the terminal.
-- `grep [pattern] [file]` - Search for a pattern in a file.
-- `chmod [permissions] [file]` - Change file permissions.
-- ...
-
----
-
-Feel free to contribute by adding your own frequently used commands or improving the documentation. If you have questions or suggestions, please open an issue or submit a pull request.
-
-**Disclaimer:** Please use these commands with caution, as some actions can have irreversible effects on your system or data.
-
-
-# Appendix
-
-
-
-
-
- 
-
- 
-
+## Git Commands
 First Time Cloning an Azure/Git repository:
+- For Windows: Install Git Credentials Manager
+- For Mac:  
+  - `brew tap microsoft/git`
+  - `brew install --cask git-credential-manager-core`
+and Log-in from browser
+  
+### Git Commands for version control
+- `git clone https://github.com/<repo-name>.git` - To clone a repository
+- `git checkout origin/master` - To set branch to master/main
+- `git status` - To check the git status of the directory
+- `git pull origin develop` - To pull all contents from `develop` branch
+- `git log` - To get history of latest changes made in the repository
+- `git checkout -b <new branch name>` - To create a new branch before starting to make changes. Branch names can begin with `feature/12345_new_model`/`patch/12345_add_item`/`bugfix/12345_fix_issue`
+-- make code changes--
+- `git status`
+- `git add <filenames>` - Add modified files from output of previous `git status` command
+- `git commit -m "comments"` - A meaningful message for the commit
+- `git push origin -u <new branch name>:<remote branch name>` - Just `git push origin` is enough if you're pushing directly to master.
 
-For Windows-> Install Git Credentials Manager
-For Mac->
-brew tap microsoft/git
+Other git commands:
+- `git fetch` - If some new branches are missing in local
+- `git diff` 
+- `git stash` - To delete all existing changes & start fresh 
+- `git reset --merge`
+- `git checkout -f origin/master`
+- `git pull origin bug/12345-existing_error`
 
-brew install --cask git-credential-manager-core
 
- 
+## Conda virtual environments
+### To create a new virtual environment with conda
 
-And Log in from browser
-
- 
-
-git clone https
-
- 
-
-GIT Commands:
-
-git checkout origin/master
-git status
-git pull origin develop
-git log
-git checkout -b <new branch name>
--- make changes--
-git status
-git add <filenames>
-git commit -m "comments"
-git push origin -u <new branch name>:<remote branch name>
- 
-
-Other commands:
-
-git diff
-git stash
-git reset --merge
-git fetch
-git checkout -f origin/master
- 
-
-git pull origin bug/2457988-cross_document_error
- 
-
-PEP8 Enforcing:
-
-`flake8 <code path> --max-line-length=120`
-
-or
-
-python -m flake8 <code path> --max-line-length=120
-
-pip freeze | grep pandas
-
- 
-
-Conda Environment using Yaml file:
-
- 
-
-conda create -y -n "<env name>" python=3.8 pip=21.1
-
-conda activate <env name>
-
-conda env create -f conda.yml
-
- 
+- `conda create -y -n "<env name>" python=3.9 pip=21.1` - To create virtual environment using Python 3.9 & a compatible pip version 
+- `conda activate <env name>` - To activate the virtual environment
+- `conda env list` - To list all available environments
+- `conda env create -f conda.yml`
+- `conda deactivate` - To deactivate a conda environment
 
 To update an existing conda environment:
-
-conda env update --file "./Dependencies/conda.yml" --prune
-
- 
+- `conda env update --file "./Dependencies/conda.yml" --prune`
 
 If organization is not allowing to create a conda env:
 
-conda config --set ssl_verify no
+- `conda config --set ssl_verify no`
+- `python -m pip install PACKAGENAME --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org` - This bypasses Firewall
+- `pip freeze | grep PACKAGENAME` - To get the version of a specific package
+- `pip freeze > requirements.txt` - To save all the package requirements in a virtual environment
 
-python -m pip install PACKAGENAME --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
+Pytesting:
+- `python -m pytest --rootdir=./Tests --junitxml=./Tests/junit/unit-test.xml -vv -rP` - To test all tests from the folder
+- `pytest -v tests/my-directory/test_demo.py::test_specific_function` - To test a specific function
 
- 
+Command to get all python packages used in a project:
+- `pip install pipreqs`
+- `pipreqs "<location where you want requirements to be saved>"`
 
-Command for testing:
+## PEP8 Checking in code
+### Checking intendation of python script
+First install Flake8 package (`pip install Flake8`)
+- `flake8 <code path> --max-line-length=120`
+or
+- `python -m flake8 <code path> --max-line-length=120`
 
-python -m pytest --rootdir=./Tests --junitxml=./Tests/junit/unit-test.xml -vv -rP
 
-pytest -v tests/my-directory/test_demo.py::test_specific_function
+## Docker Commands
+### Docker Commands for running a docker file
+First open 'Docker CLI' for SSO authentication
+- `docker login` - Enable logging in with SSO if connected to VPN/Remote Connect.
+- `docker pull <image-name>` - A working sample command to pull a repository.
+- `docker images` - List the available docker images.
+- `docker build . -f dockerfile -t <image name>` - Build a docker image using the available dockerfile in the repository
+- `docker build -t <image-name> -f dockerfile .` - This can also be used. Check & understand the difference before using it.
+- `docker build -t  <another-image-name> -f dockerfile .`
+- `docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 <image name>` - Run & publish the docker image
+- `docker run -p 5000:5000 -v //home//project-location//://home//project-location// -d <image-name>`
+- `docker run -p 4200:4200 -d <image-name>`
+- `docker-compose -f db-docker-compose.yaml up` - If it's only to run a MSSQL database locally
 
- 
+- `systemctl show --property ActiveState docker|cut -d"=" -f2` - To list active docker images
+
+
+## Azure Commands
+### Commands used to connect to Microsoft Azure Portal 
+[Full list](https://github.com/ferhaty/azure-cli-cheatsheet)
+For command-line:
+- `az login` - Login with web
+- `az login -u myemail@address.com` - Login in CLI
+- `az account list` - List accounts
+- `az account list-locations` - List all locations
+- `az account get-access-token --output json --resource https://vault.azure.net`
+- `az resource list` - List all my resource groups
+- `azure --version` - Get what version of the CLI you have
+- `az vm list` - List your VMs
+- `azure help` - Get help
+- `az account show -o jsonc` - Check if logged in or not
+- `az account set --subscription <subscription-id>` - To set the currently active subscription for your Azure account
+- `az aks get-credentials --resource-group <resource-group-name> --name <name-of-AKS-cluster> --admin` - To configure kubectl with the credentials and context required to connect to an Azure Kubernetes Service (AKS) cluster
+
+## Kubernetes Commands
+### Commands for interacting with Kubernetes clusters
+- `kubectl get pods -n <name of the cluster>` - Used to retrieve information about resources in the cluster.
+
+
+## Linux Commands
+### Commands used in Linux OS
+- `sudo lsof -i -P -n | grep LISTEN`
+- `kill -9 <container id>`
+
+Curl Commands:
+- `curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/<page-url>/`
+
+For Azure Portal:
+Steps: 
+1. Enable SSH
+2. Install NVIDIA Drivers
+
+- `ssh -L 1234:localhost:8888 avinash@<IP-Address>` - Port forwarding
+
+Enabling SSH: 
+- `ls .ssh`
+- `ssh-copy-id -i ~/.ssh/id_rsa avinash@<IP-Address>`
+- `ssh avinash@172.190.120.45`
+
+Inside VM:
+- `tmux kill-session -t 1`
+- `tmux a -t 1`
+- `tmux ls`
+- `tmux`
+- `sudo shutdown`
+- `df -h`
+- `htop`
+- `ps`
+
+- `ssh-copy-id -i ~/.ssh/mykey user@host`
+Also refer [Tmux cheat-sheet](https://tmuxcheatsheet.com/) & [SSH Basics](https://www.ssh.com/academy/ssh/copy-id)
+
+  
+## Prefect Commands
+### Prefect is an orchestration tool
+[Prefect](https://www.prefect.io)
+[Documentation](https://docs.prefect.io/2.11.3/)
+- `prefect version`
+- `prefect server start`
+- `prefect deployment build prefect_tryouts.py:hello_world -n demo-deployment`
+- `prefect deployment apply hello_world-deployment.yaml`
+- `prefect agent start -q <work_queue_name>`
+- `prefect cloud login`
+
+## Other Tips
+### Some ways to reduce efforts while developing code
 
 To reduce size of PDFs in PDF X-Change Editor:
 
 Organize -> Resize -> Percentage -> [Reduce to a size which fit requirement].
 (Keep 'Context Scale Options' all check)
 
- 
+To beautify JSONs:     `Ctrl + Alt + L` (`Option + cmd + L` on Mac)
 
- 
-
- 
-
-To beautify JSONs:     Ctrl + Alt + L (Option + cmd + L on Mac)
-
-To select a url fully: Ctrl + W
-
- 
+To select a url fully: `Ctrl + W`
 
 Extend Selection:
 
-In Mac: Option + Up or Option + Down
+- In Mac: `Option + Up` or `Option + Down`
 
-In Windows: Ctrl + W
+- In Windows: `Ctrl + W`
 
- 
-
- 
-
- 
-
-Azure Commands (from https://github.com/ferhaty/azure-cli-cheatsheet):
-
- 
-
-Login with web: az login
- Login in CLI: az login -u myemail@address.com
- List accounts: az account list
-List all locations: az account list-locations
-az account get-access-token --output json --resource https://vault.azure.net
-List all my resource groups: az resource list
-Get what version of the CLI you have: azure --version
-Get help: azure help
-List your VMs: az vm list
-Check if logged in or not: az account show -o jsonc
- 
-
- 
- conda create -y -n "pipeline-env" python=3.9 pip=21.1
- conda env list
- conda activate pipeline-env
- conda deactivate
+Get IP address of the Mac:
+- `curl ifconfig.me`
 
 
- 
+---
+
+These commands are written in such a way that helps *me* understand them. I might add more, delete some based on whatever is relevant for me.
+
+**Note:** I'll keep on updating these commands as I use them. 
