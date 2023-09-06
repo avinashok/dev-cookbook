@@ -82,6 +82,7 @@ or
 
 ## Docker Commands
 ### Docker Commands for running a docker file
+
 First open 'Docker CLI' for SSO authentication
 - `docker login` - Enable logging in with SSO if connected to VPN/Remote Connect.
 - `docker pull <image-name>` - A working sample command to pull a repository.
