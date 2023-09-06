@@ -117,6 +117,15 @@ For command-line:
 ## Kubernetes Commands
 ### Commands for interacting with Kubernetes clusters
 - `kubectl get pods -n <name of the cluster>` - Used to retrieve information about resources in the cluster.
+- `kubectl describe pod -n <name of the cluster> <name of the pod>` - Gives detailed information from the yaml file used to configure the pod.
+- `kubectl logs <name of the pod> -n <name of the cluster>` - To get the logs of a pod
+- `kubectl top pod <name of the pod> -n <name of the cluster>` - To retrieve usage statistics of a pod
+- `kubectl apply -f manifest-file-name.yaml` - Apply changes made in the yaml file and recreate the pods based on it.
+- `kubectl port-forward <resource-you-want-to-forward-a-port-to> 4200:4200 -n <name-space>` - For port-forwarding.
+- `kubectl get secret` - List the secrets available
+- `kubeclt describe secret` - To get all details of the namespace including the token.
+
+
 
 
 ## Linux Commands
