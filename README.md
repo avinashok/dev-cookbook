@@ -152,15 +152,12 @@ Enabling SSH:
 Inside VM:
 - `tmux kill-session -t 1`
 - `tmux a -t 1`
-
-  
 - `tmux ls`
 - `tmux`
 - `sudo shutdown`
 - `df -h`
 - `htop`
 - `ps`
-
 - `ssh-copy-id -i ~/.ssh/mykey user@host`
 Also refer [Tmux cheat-sheet](https://tmuxcheatsheet.com/) & [SSH Basics](https://www.ssh.com/academy/ssh/copy-id)
 
