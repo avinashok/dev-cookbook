@@ -94,7 +94,6 @@ First open 'Docker CLI' for SSO authentication
 - `docker run -p 5000:5000 -v //home//project-location//://home//project-location// -d <image-name>`
 - `docker run -p 4200:4200 -d <image-name>`
 - `docker-compose -f db-docker-compose.yaml up` - If it's only to run a MSSQL database locally
-
 - `systemctl show --property ActiveState docker|cut -d"=" -f2` - To list active docker images
 
 
