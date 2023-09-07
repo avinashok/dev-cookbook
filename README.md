@@ -149,9 +149,11 @@ Enabling SSH:
 - `ssh-copy-id -i ~/.ssh/id_rsa avinash@<IP-Address>`
 - `ssh avinash@172.190.120.45`
 
-Inside VM: 
+Inside VM:
 - `tmux kill-session -t 1`
 - `tmux a -t 1`
+
+  
 - `tmux ls`
 - `tmux`
 - `sudo shutdown`
