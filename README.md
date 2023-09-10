@@ -28,11 +28,11 @@ and Log-in from browser
 - `git checkout origin/master` - To set branch to master/main
 - `git status` - To check the git status of the directory
 - `git pull origin develop` - To pull all contents from `develop` branch
-- `git log` - To get history of latest changes made in the repository
+- `git log` - To get a history of the latest changes made in the repository
 - `git checkout -b <new branch name>` - To create a new branch before starting to make changes. Branch names can begin with `feature/12345_new_model`/`patch/12345_add_item`/`bugfix/12345_fix_issue`
 -- make code changes--
 - `git status`
-- `git add <filenames>` - Add modified files from output of previous `git status` command
+- `git add <filenames>` - Add modified files from the output of the previous `git status` command
 - `git commit -m "comments"` - A meaningful message for the commit
 - `git push origin -u <new branch name>:<remote branch name>` - Just `git push origin` is enough if you're pushing directly to master.
 
@@ -57,7 +57,7 @@ Other git commands:
 To update an existing conda environment:
 - `conda env update --file "./Dependencies/conda.yml" --prune`
 
-If organization is not allowing to create a conda env:
+If the organization is not allowed to create a conda env:
 
 - `conda config --set ssl_verify no`
 - `python -m pip install PACKAGENAME --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org` - This bypasses Firewall
@@ -179,14 +179,14 @@ Also refer [Tmux cheat-sheet](https://tmuxcheatsheet.com/) & [SSH Basics](https:
 ## Other Tips
 ### Some ways to reduce efforts while developing code
 
-To reduce size of PDFs in PDF X-Change Editor:
+To reduce the size of PDFs in PDF X-Change Editor:
 
-Organize -> Resize -> Percentage -> [Reduce to a size which fit requirement].
+Organize -> Resize -> Percentage -> [Reduce to a size which fit the requirement].
 (Keep 'Context Scale Options' all check)
 
 To beautify JSONs:     `Ctrl + Alt + L` (`Option + cmd + L` on Mac)
 
-To select a url fully: `Ctrl + W`
+To select a URL fully: `Ctrl + W`
 
 Extend Selection:
 
@@ -200,6 +200,6 @@ Get IP address of the Mac:
 
 ---
 
-These commands are written in such a way that helps *me* understand them. I might add more, delete some based on whatever is relevant for me.
+These commands are written in such a way that helps **me** understand them. I might add more, or delete some, based on whatever is relevant to me. 
 
 **Note:** I'll keep on updating these commands as I use them. 
