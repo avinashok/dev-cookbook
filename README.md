@@ -128,6 +128,8 @@ For command-line:
 - `kubectl get secret` - List the secrets available
 - `kubectl describe secret` - To get all details of the namespace including the token.
 - `kubectl config get-contexts` - Used to display information about the available contexts in your Kubernetes configuration
+- `kubectl get hpa -n <name-space>` - Used to retrieve information about Horizontal Pod Autoscalers (HPA) in a namespace
+- `kubectl -n <name-space> patch hpa <name-of-the-hpa> --patch '{"spec":{"maxReplicas":2}}'` - To configure maximum replicas of a HPA.
 
 
 
