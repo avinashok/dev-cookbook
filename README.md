@@ -118,7 +118,7 @@ For command-line:
 ### Commands for interacting with Kubernetes clusters
 [Full list](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - `kubectl get pods -n <name of the cluster>` - Used to retrieve information about resources in the cluster.
-- `kubectl get pods -A -o wide` - Used to get complete information about available pods and the tasks undertaken by them.
+- `kubectl get pods -A -o wide > file-name.txt` - Used to get complete information about available pods and the tasks undertaken by them (stores it in a text file).
 - `kubectl get nodes` - Used to get all available nodes.
 - `kubectl describe pod -n <name of the cluster> <name of the pod>` - Gives detailed information from the yaml file used to configure the pod.
 - `kubectl logs <name of the pod> -n <name of the cluster>` - To get the logs of a pod
