@@ -84,16 +84,19 @@ or
 ### Docker Commands for running a docker file
 
 First open 'Docker CLI' for SSO authentication
-- `docker login` - Enable logging in with SSO if connected to VPN/Remote Connect.
+- `docker login <host-name> -u <user name> -p <password>` - Enable logging in with SSO if connected to VPN/Remote Connect.
 - `docker pull <image-name>` - A working sample command to pull a repository.
 - `docker images` - List the available docker images.
 - `docker build . -f dockerfile -t <image name>` - Build a docker image using the available dockerfile in the repository
 - `docker build -t <image-name> -f dockerfile .` - This can also be used. Check & understand the difference before using it.
 - `docker build -t  <another-image-name> -f dockerfile .`
+- `docker tag <tag name> <ACR hostname/folder:latest` - To tag the image manually
+- `docker push <host name/folder:latest>` - To push to container registries/remote locations.
 - `docker run -it -e PYTHONUNBUFFERED=1 --publish 8080:8080 <image name>` - Run & publish the docker image
 - `docker run -p 5000:5000 -v //home//project-location//://home//project-location// -d <image-name>`
 - `docker run -p 4200:4200 -d <image-name>`
 - `docker-compose -f db-docker-compose.yaml up` - If it's only to run a MSSQL database locally
+- `
 - `systemctl show --property ActiveState docker|cut -d"=" -f2` - To list active docker images
 
 
@@ -200,6 +203,9 @@ Extend Selection:
 Get IP address of the Mac:
 - `curl ifconfig.me`
 
+To convert a string to base64 in Mac:
+- `echo 'string' | base64 # To encode
+- 'c3RyaW5nCg==' | base64 -D # To decode
 
 ---
 
