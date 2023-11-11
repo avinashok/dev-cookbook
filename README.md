@@ -121,6 +121,7 @@ For command-line:
 - `kubectl get pods -A -o wide > file-name.txt` - Used to get complete information about available pods and the tasks undertaken by them (stores it in a text file).
 - `kubectl get nodes` - Used to get all available nodes.
 - `kubectl describe pod -n <name of the cluster> <name of the pod>` - Gives detailed information from the yaml file used to configure the pod.
+- `kubectl get hpa <name assigned to the HPA> --watch` - Gives real-time load info and pod count by HorizontalPodAutoscaler. [1](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) [2](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 - `kubectl logs <name of the pod> -n <name of the cluster>` - To get the logs of a pod
 - `kubectl top pod <name of the pod> -n <name of the cluster>` - To retrieve usage statistics of a pod
 - `kubectl apply -f manifest-file-name.yaml` - Apply changes made in the yaml file and recreate the pods based on it.
