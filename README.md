@@ -72,6 +72,9 @@ Command to get all python packages used in a project:
 - `pip install pipreqs`
 - `pipreqs "<location where you want requirements to be saved>"`
 
+To install from within a repository (if it has setup.py)
+- `pip install - e .` (This installs the repo in 'editable' mode.
+
 ## PEP8 Checking in code
 ### Checking intendation of python script
 First install Flake8 package (`pip install Flake8`)
