@@ -63,6 +63,7 @@ If the organization is not allowed to create a conda env:
 - `python -m pip install PACKAGENAME --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org` - This bypasses Firewall
 - `pip freeze | grep PACKAGENAME` - To get the version of a specific package
 - `pip freeze > requirements.txt` - To save all the package requirements in a virtual environment
+- `pip show PACKAGENAME` - To get more details of a specific package
 
 Pytesting:
 - `python -m pytest --rootdir=./Tests --junitxml=./Tests/junit/unit-test.xml -vv -rP` - To test all tests from the folder
