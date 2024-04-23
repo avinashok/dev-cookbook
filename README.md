@@ -35,6 +35,7 @@ and Log-in from browser
 - `git add <filenames>` - Add modified files from the output of the previous `git status` command
 - `git commit -m "comments"` - A meaningful message for the commit
 - `git push origin -u <new branch name>:<remote branch name>` - Just `git push origin` is enough if you're pushing directly to master.
+- `git push origin HEAD:<branch name>` - To directly push the changes to a branch.
 
 Other git commands:
 - `git fetch` - If some new branches are missing in local
@@ -43,6 +44,8 @@ Other git commands:
 - `git reset --merge`
 - `git checkout -f origin/master`
 - `git pull origin bug/12345-existing_error`
+- `git config --global http.sslVerify true` - Step 1: in case of SSL certificate error
+- `git config --global http.sslbackend schannel` - Step 2: in case of SSL certificate error
 
 
 ## Conda virtual environments
